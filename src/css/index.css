@@ -13,7 +13,8 @@ code {
 }
 
 img {
-  display: block;
+  clear: both;
+  /* display: flex; */
   margin-left: auto;
   margin-right: auto;
   width: 5%;

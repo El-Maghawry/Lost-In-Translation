@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import './css/App.css';
 // import a from './LostInTranslation_Resources/individial_signs/a.png'
 // import b from './LostInTranslation_Resources/individial_signs/b.png'
 // import c from './LostInTranslation_Resources/individial_signs/c.png'
@@ -15,7 +16,7 @@ const Translation = () => {
     console.log(letters)
     // console.log(translation)
     letters.forEach((letter) => {
-        list.push(<img src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
+        list.push(<img src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt={letter} /> )
         
       })
 
@@ -51,8 +52,10 @@ const Translation = () => {
                     <p>{translation}</p>
                 </div>
                 <button onClick={ handle }>Show Translation</button>
+                <div>
+                    {list}
+                </div>
                 
-                {list}
                 
             </div>
             );
