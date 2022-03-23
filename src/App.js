@@ -1,5 +1,5 @@
 import './App.css';
-import LoginView from './views/LoginView';
+import LoginView from './components/views/LoginView.jsx';
 
 function App() {
   return (
