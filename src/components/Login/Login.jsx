@@ -20,7 +20,13 @@ function Login (){
     .then(response => response.json())
     .then(results => {
         // results will be an array of users that match the username of victor.
-        console.log(results);
+        if(results.length === 0){
+            console.log("No user exists");
+        }
+        else{
+            console.log("User exists");
+        }
+       
     })
     .catch(error => {
         console.log(error);
@@ -29,10 +35,14 @@ function Login (){
 
     return(
         <div>
-        <h1>Welcome to Lost In Translation</h1>
-        <form className="m-4">
-            <input id="username" type="text" className="border-r-0  border-2 rounded-r-none" placeholder="What's your name?" onChange={ onInputChange }/>
-            <button type="submit" onClick={getUser} className="bg-amber-300 border-l-0  border-2 rounded-md rounded-l-none">Login</button>
+        <h1 className="header">Welcome to Lost In Translation</h1> 
+        <form className="mt-4">
+
+            <div className="mb-3">
+                <label htmlFor="username" className="form-label">Username</label>
+                <input id="username" className="form-control" type="text" placeholder="What's your name?" onChange={ onInputChange }/>
+            </div>
+            <button className="btn btn-primary btn-lg" type="submit" onClick={getUser}>Login</button>
         </form>
         </div>
     )
