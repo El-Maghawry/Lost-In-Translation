@@ -2,6 +2,8 @@ import {useState} from 'react'
 
 function Login (){
 
+    const apiURL = 'https://api-noroff.herokuapp.com'
+    const apiKey = '9c4e656f9d584e5fa37a48b92e8b568f'
     const [credentials, setCredentials] = useState({
         username: ''
     })
@@ -14,25 +16,48 @@ function Login (){
     }
 
     function getUser(){
-        const apiURL = 'https://api-noroff.herokuapp.com'
-
     fetch(`${apiURL}/translations?username=${credentials.username}`)
     .then(response => response.json())
-    .then(results => {
+    .then(users => {
         // results will be an array of users that match the username of victor.
-        if(results.length === 0){
-            console.log("No user exists");
+        if(users.length === 0){
+            registerUser(credentials.username);
         }
         else{
-            console.log("User exists");
+            console.log(users[0])
         }
-       
     })
     .catch(error => {
         console.log(error);
     })
     }
 
+function registerUser(username){
+    fetch(`${apiURL}/translations`, {
+        method: 'POST',
+        headers: {
+          'X-API-Key': apiKey,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 
+            username: username, 
+            translations: [] 
+        })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Could not create new user')
+      }
+      return response.json()
+    })
+    .then(newUser => {
+      // newUser is the new user with an id
+      console.log(newUser)
+    })
+    .catch(error => {
+        console.log(error)
+    })
+}
     return(
         <div>
         <h1 className="header">Welcome to Lost In Translation</h1> 
@@ -42,7 +67,7 @@ function Login (){
                 <label htmlFor="username" className="form-label">Username</label>
                 <input id="username" className="form-control" type="text" placeholder="What's your name?" onChange={ onInputChange }/>
             </div>
-            <button className="btn btn-primary btn-lg" type="submit" onClick={getUser}>Login</button>
+            <p className="btn btn-primary btn-lg" type="submit" onClick={getUser}>Login</p>
         </form>
         </div>
     )
