@@ -20,11 +20,15 @@ function Login (){
     .then(response => response.json())
     .then(users => {
         // results will be an array of users that match the username of victor.
-        if(users.length === 0){
-            registerUser(credentials.username);
-        }
-        else{
-            console.log(users[0])
+        if(credentials.username !== ''){
+            if(users.length === 0){
+                registerUser(credentials.username);
+            }
+            else{
+                console.log(users[0])
+            }
+        }else{
+            console.log('Username is empty')
         }
     })
     .catch(error => {
