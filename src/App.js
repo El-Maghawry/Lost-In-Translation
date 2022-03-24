@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
         <Route path="/" element={<LoginView/>}/>
-        <Route path="translations" element={<TranslationView/>}/>
+        <Route path="translation" element={<TranslationView/>}/>
         <Route path="profile" element={<ProfileView/>}/>
         <Route path="*" element={<NotFoundView/>}/>
         </Routes>
