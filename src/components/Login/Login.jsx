@@ -1,10 +1,12 @@
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import {loginAttemptAction} from '../../store/actions/loginActions'
 
 const Login = () => {
 
     const dispatch = useDispatch();
+    const router = useNavigate();
 
 
     const [credentials, setCredentials] = useState({
@@ -21,6 +23,9 @@ const Login = () => {
     const onFormSubmit = event => {
         event.preventDefault();
         dispatch(loginAttemptAction(credentials.username))
+        console.log(localStorage.getItem('userSession'))
+  
+  
     }
 
     return(
