@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { Navigate, useNavigate } from 'react-router-dom'
 import {loginAttemptAction} from '../../store/actions/loginActions'
@@ -7,9 +7,8 @@ const Login = () => {
 
     const dispatch = useDispatch();
     const router = useNavigate();
-
     const session  = useSelector(state => state.session)
-
+    const usernameInput = useRef();
 
     const [credentials, setCredentials] = useState({
         username: ''
@@ -24,13 +23,13 @@ const Login = () => {
 
     const onFormSubmit = event => {
         event.preventDefault();
-        if(event.target.value !== ''){
+        if(usernameInput.current.value === ''){
+            return
+        }
+        else{
             dispatch(loginAttemptAction(credentials.username))
             router('/translation')
         }
-   
-  
-  
     }
 
     return(
@@ -43,7 +42,7 @@ const Login = () => {
 
             <div className="mb-3">
                 <label htmlFor="username" className="form-label">Username</label>
-                <input id="username" className="form-control" type="text" placeholder="What's your name?" onChange={ onInputChange }/>
+                <input ref={usernameInput} id="username" className="form-control" type="text" placeholder="What's your name?" onChange={ onInputChange }/>
             </div>
             <button className="btn btn-primary btn-lg" type="submit">Login</button>
         </form>
