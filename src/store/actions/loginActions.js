@@ -3,7 +3,7 @@ export const ACTION_LOGIN_ATTEMPTING = '[login] ATTEMPT';
 export const ACTION_LOGIN_SUCCESS = '[login] SUCCESS';
 export const ACTION_LOGIN_ERROR = '[login] ERROR';
 
-export const loginAtemptAction = credentials =>({
+export const loginAttemptAction = credentials =>({
     type: ACTION_LOGIN_ATTEMPTING,
     payload: credentials
 })

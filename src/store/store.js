@@ -1,8 +1,8 @@
 import {createStore} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import appReducer from './reducers/appReducers'
-import  applyMiddleware  from './middleware/applyMiddleware';
+import  appMiddleware  from '././middleware/appMiddleware'
 
 export default createStore(
     appReducer,
-    composeWithDevTools(applyMiddleware))
+    composeWithDevTools(appMiddleware))
