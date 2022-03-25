@@ -1,4 +1,4 @@
-import {ACTION_SESSION_SET, ACTION_SESSION_INIT, sessionSetAction} from '../actions/sessionActions'
+import {ACTION_SESSION_SET, ACTION_SESSION_INIT,ACTION_SESSION_DELETE, sessionSetAction} from '../actions/sessionActions'
 import {userSetAction} from '../actions/userActions'
 
 export const sessionMiddleware = ({dispatch}) => next => action => {
@@ -18,5 +18,9 @@ export const sessionMiddleware = ({dispatch}) => next => action => {
 
     if(action.type === ACTION_SESSION_SET){
         localStorage.setItem('user-session', JSON.stringify(action.payload))
+    }
+
+    if(action.type === ACTION_SESSION_DELETE){
+        localStorage.removeItem('user-session')
     }
 }
