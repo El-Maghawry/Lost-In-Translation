@@ -9,7 +9,7 @@ export const Profile = () => {
     const dispatch = useDispatch();
     let user = {id: id, translations: []}
 
-    const tenSearches = translations.slice(0, 10);
+    const tenSearches = translations.slice(-10);
 
     function clearHistory (){
         dispatch(userClearHistoryAction())
