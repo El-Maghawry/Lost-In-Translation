@@ -1,42 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {userSetHistoryAction} from "../../store/actions/userActions"
 import '../../App.css';
 
 
 const Translation = () => {
-    const [translation, setTranslation] = useState('');
-    const [historyTranslation, addToHisotry] = useState([]);
-    const [historyDisplay, addToHistoryDisplay] = useState([]);
-    const list = [[]];
+    const dispatch = useDispatch();
+    const [searchTerm, setSearchTerm] = useState('');
+    const [isListShow, setIsListShow] = useState(false);
+    const translation = [[]];
 
-    translation.split("").forEach((letter) => {
-            list[0].push(<img src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
+    searchTerm.split("").forEach((letter) => {
+            translation[0].push(<img src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
         })
-
 
 // input for translation
     const handleTranslation = (event) =>  {
-        setTranslation(event.target.value)
+        setIsListShow(state => false);
+        setSearchTerm(event.target.value)
          }
     
 //    When translation button is pressed
     const handle = () =>  {
-        addToHisotry([...historyTranslation, 
-            (<div>
-                {translation}
-            </div>)
-        ])
-        console.log(historyTranslation)
-        if (list[0] !== historyDisplay[0]){
-        addToHistoryDisplay([...historyDisplay,
-            (<div>
-                {list[0]}
-            </div>)
-        ])
+        setIsListShow(state => true);
+        dispatch(userSetHistoryAction(searchTerm));
     }
-    }
-    useEffect(() => {
-        // console.log('use effect ran');
-    }, [historyTranslation])
 
 
     return (
@@ -54,10 +42,13 @@ const Translation = () => {
             </form>
             
             <button button className="btn btn-primary btn-lg mb-4" onClick={ handle }>Show Translation</button>
-            <div>
-                {/* {historyTranslation[0]} */}
-                 {historyDisplay[0]}
-            </div>
+            
+            {
+                isListShow &&
+                    <div>
+                        {translation[0]}
+                    </div>
+            }
         </div>
         );
 

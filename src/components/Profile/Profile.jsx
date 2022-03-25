@@ -10,10 +10,10 @@ const Profile = () => {
     <div className="row">
 
     <div className="column-left">
-    <h6>{historyTranslation}</h6>
+    {/* <h6>{historyTranslation}</h6> */}
     </div>
     <div className="column-right">
-    {historyDisplay}  
+    {/* {historyDisplay}   */}
     </div> 
     </div>
       </div> 
