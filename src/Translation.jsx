@@ -4,19 +4,14 @@ import './App.css';
 
 const Translation = () => {
     const [translation, setTranslation] = useState('');
-    const [historyTranslation, addToHisotry]= useState(["Hello!"]);
-    const list = [];
-    const historySearch = [];
-    
-    historyTranslation.slice(-1)[0].split("").forEach((letter) => {
-            list.push(<img src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
-            
+    const [historyTranslation, addToHisotry] = useState([]);
+    const [historyDisplay, addToHistoryDisplay] = useState([]);
+    const list = [[]];
+
+    translation.split("").forEach((letter) => {
+            list[0].push(<img src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
         })
 
-    for (let i = 0; i < 5; i++) {
-        historySearch.push([list])
-        text += "The number is " + i + "<br>";
-        }
 
 // input for translation
     const handleTranslation = (event) =>  {
@@ -25,9 +20,21 @@ const Translation = () => {
     
 //    When translation button is pressed
     const handle = () =>  {
-        addToHisotry([...historyTranslation, translation])
+        addToHisotry([...historyTranslation, 
+            (<div>
+                {translation}
+                <hr />
+            </div>)
+        ])
         console.log(historyTranslation)
-        
+        if (list[0] !== historyDisplay[0]){
+        addToHistoryDisplay([...historyDisplay,
+            (<div>
+                {list[0]}
+                <hr />
+            </div>)
+        ])
+    }
     }
 
     useEffect(() => {
@@ -49,16 +56,25 @@ const Translation = () => {
                 </fieldset>
             </form>
             
-            <button button className="btn btn-primary btn-lg mb-4"  
-            onClick={ handle }>Show Translation</button>
+            <button button className="btn btn-primary btn-lg mb-4" onClick={ handle }>Show Translation</button>
             <div>
-                {list}
-                
+                {/* {historyTranslation[0]} */}
+                 {historyDisplay[0]}
             </div>
-            <h6>{historyTranslation.slice(-1)}</h6>
 
-            <div className="vstack">
-                {historyTranslation}
+            
+
+            <h2 className="mb-3">History</h2>
+                            <hr></hr>
+            {/* this need to go to the profile page */}
+            <div className="row">
+                
+                <div className="column-left">
+                    <h6>{historyTranslation}</h6>
+                </div>
+                <div className="column-right">
+                    {historyDisplay}  
+                </div> 
             </div>
             
             

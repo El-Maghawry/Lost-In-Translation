@@ -14,7 +14,20 @@ img {
   /* display: flex; */
   margin-left: auto;
   margin-right: auto;
-  width: 5%;
+  width: 7%;
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column-left {
+  flex:20%;
+}
+
+.column-right {
+  flex:80%;
 }
 
 /* @tailwind base; 
