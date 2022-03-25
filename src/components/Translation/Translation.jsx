@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import './App.css';
+import '../../App.css';
 
 
 const Translation = () => {
@@ -23,7 +23,6 @@ const Translation = () => {
         addToHisotry([...historyTranslation, 
             (<div>
                 {translation}
-                <hr />
             </div>)
         ])
         console.log(historyTranslation)
@@ -31,12 +30,10 @@ const Translation = () => {
         addToHistoryDisplay([...historyDisplay,
             (<div>
                 {list[0]}
-                <hr />
             </div>)
         ])
     }
     }
-
     useEffect(() => {
         // console.log('use effect ran');
     }, [historyTranslation])
@@ -61,24 +58,6 @@ const Translation = () => {
                 {/* {historyTranslation[0]} */}
                  {historyDisplay[0]}
             </div>
-
-            
-
-            <h2 className="mb-3">History</h2>
-                            <hr></hr>
-            {/* this need to go to the profile page */}
-            <div className="row">
-                
-                <div className="column-left">
-                    <h6>{historyTranslation}</h6>
-                </div>
-                <div className="column-right">
-                    {historyDisplay}  
-                </div> 
-            </div>
-            
-            
-            
         </div>
         );
 
