@@ -1,23 +1,29 @@
-import { useState, useEffect } from "react";
 import '../../App.css';
+import {useSelector} from 'react-redux'
 
-const Profile = () => {
+export const Profile = () => {
 
-    return ( <div>
-        <h2 className="mb-3">History</h2>
-        <hr></hr>
-    {/* this need to go to the profile page */}
-    <div className="row">
+    const user = useSelector((state) => state.user);
 
-    <div className="column-left">
-    {/* <h6>{historyTranslation}</h6> */}
-    </div>
-    <div className="column-right">
-    {/* {historyDisplay}   */}
-    </div> 
-    </div>
-      </div> 
-       );
+    let searchHistory = user.translations.map((translation) =>(
+        <li key="{translation}">
+            {translation}
+        </li>
+    ))
+
+    return ( 
+        <div>
+            <h2 className="mb-3">History</h2>
+            {user.username}
+            <hr></hr>
+            <ul>
+            {
+                searchHistory.length > 0 && {searchHistory}
+            }
+            </ul>
+
+        </div> 
+    );
 
 }
  

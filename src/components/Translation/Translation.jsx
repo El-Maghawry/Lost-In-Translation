@@ -11,7 +11,7 @@ const Translation = () => {
     const translation = [[]];
 
     searchTerm.split("").forEach((letter) => {
-            translation[0].push(<img src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
+            translation[0].push(<img key="{letter}" src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
         })
 
 // input for translation
@@ -41,7 +41,7 @@ const Translation = () => {
                 </fieldset>
             </form>
             
-            <button button className="btn btn-primary btn-lg mb-4" onClick={ handle }>Show Translation</button>
+            <button className="btn btn-primary btn-lg mb-4" onClick={ handle }>Show Translation</button>
             
             {
                 isListShow &&

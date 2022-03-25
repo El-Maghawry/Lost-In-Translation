@@ -1,4 +1,5 @@
 import {ACTION_SESSION_SET, ACTION_SESSION_INIT, sessionSetAction} from '../actions/sessionActions'
+import {userSetAction} from '../actions/userActions'
 
 export const sessionMiddleware = ({dispatch}) => next => action => {
     
@@ -12,6 +13,7 @@ export const sessionMiddleware = ({dispatch}) => next => action => {
         }
         const session = JSON.parse(storedSession)
         dispatch(sessionSetAction(session))
+        
     }
 
     if(action.type === ACTION_SESSION_SET){

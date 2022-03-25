@@ -1,6 +1,9 @@
+import {Profile} from '../Profile/Profile'
+
+
 function ProfileView(){
     return (
-        <h1>ProfileView</h1>
+        <Profile/>
     )
 }
 
