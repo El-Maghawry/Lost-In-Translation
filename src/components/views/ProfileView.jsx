@@ -1,5 +1,4 @@
-import {Profile} from '../Profile/Profile'
-
+import Profile from "../Profile/Profile";
 
 function ProfileView(){
     return (
