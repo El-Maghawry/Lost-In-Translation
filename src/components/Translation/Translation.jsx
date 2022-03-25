@@ -11,7 +11,7 @@ const Translation = () => {
     const translation = [[]];
 
     searchTerm.split("").forEach((letter) => {
-            translation[0].push(<img key="{letter}" src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
+            translation[0].push(<img key="{}" src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
         })
 
 // input for translation

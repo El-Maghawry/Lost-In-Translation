@@ -13,7 +13,7 @@ export const sessionMiddleware = ({dispatch}) => next => action => {
         }
         const session = JSON.parse(storedSession)
         dispatch(sessionSetAction(session))
-        
+        dispatch(userSetAction(session))
     }
 
     if(action.type === ACTION_SESSION_SET){
