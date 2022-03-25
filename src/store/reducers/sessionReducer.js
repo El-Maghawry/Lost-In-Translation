@@ -1,4 +1,4 @@
-import {ACTION_SESSION_SET} from '../actions/sessionActions'
+import {ACTION_SESSION_SET, ACTION_SESSION_DELETE} from '../actions/sessionActions'
 
 const initialState = 
     {
@@ -11,14 +11,18 @@ const initialState =
 
 export const sessionReducer = (state = initialState, action) => {
 
-    if(action.type === ACTION_SESSION_SET ) {
-        
+    switch(action.type) {
+        case ACTION_SESSION_SET:
             return{
                 ...action.payload,
                 loggedIn: true
             }
-        }
-        else{
-            return state
-        }
+            case ACTION_SESSION_DELETE:
+                return{
+                    ...action.payload,
+                    loggedIn: false
+                }
+            default:
+                return state
     }
+}
