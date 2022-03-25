@@ -1,16 +1,21 @@
 import '../../App.css';
 import {useSelector, useDispatch} from 'react-redux'
-import {userClearHistoryAction} from '../../store/actions/userActions'
+import {userClearHistoryAction, userSetTranslationsAction} from '../../store/actions/userActions'
 import HistoryList from './HistoryList'
 
 export const Profile = () => {
 
-    const {username, translations} = useSelector((state) => state.user);
+    const {id, username, translations} = useSelector((state) => state.user);
     const dispatch = useDispatch();
+    let user = {id: id, translations: []}
 
     const tenSearches = translations.slice(0, 10);
 
-    const clearHistory = () => (dispatch(userClearHistoryAction()))
+    function clearHistory (){
+        dispatch(userClearHistoryAction())
+        dispatch(userSetTranslationsAction(user))
+    }
+        
 
     return ( 
         <div>
@@ -18,7 +23,8 @@ export const Profile = () => {
             <h2 className="mb-3">My search history</h2>
             <hr></hr>
             <HistoryList items={tenSearches}/>
-            <button onClick={clearHistory} className="btn btn-primary btn-lg">Clear history</button>
+            {translations.length > 0 &&  <button onClick={clearHistory} className="btn btn-primary btn-lg">Clear history</button>}
+           
         </div> 
     );
 

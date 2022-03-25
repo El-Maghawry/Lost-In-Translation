@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import {userSetHistoryAction} from "../../store/actions/userActions"
+import { useDispatch, useSelector } from "react-redux";
+import {Navigate} from 'react-router-dom'
+import { userSetTranslationsAction} from "../../store/actions/userActions"
 import '../../App.css';
 
 
@@ -8,6 +9,8 @@ const Translation = () => {
     const dispatch = useDispatch();
     const [searchTerm, setSearchTerm] = useState('');
     const [isListShow, setIsListShow] = useState(false);
+    const {id, translations} = useSelector((state) => state.user)
+    const {loggedIn} = useSelector((state) => state.session)
     const translation = [[]];
 
     searchTerm.split("").forEach((letter, index) => {
@@ -19,16 +22,22 @@ const Translation = () => {
         setIsListShow(state => false);
         setSearchTerm(event.target.value)
          }
+
+    const updatedUser = { id:id, translations: [...translations, searchTerm] };
     
 //    When translation button is pressed
     const handle = () =>  {
         setIsListShow(state => true);
-        dispatch(userSetHistoryAction(searchTerm));
+        dispatch(userSetTranslationsAction(updatedUser))
     }
 
 
     return (
-        <div>
+        <>
+        {!loggedIn && <Navigate to="/" replace />}
+        {
+            loggedIn && 
+            <div>
             <form className="mb-3">
                 <fieldset>
                     <legend> Insert text to translate to sign-language </legend>
@@ -49,6 +58,9 @@ const Translation = () => {
                     </div>
             }
         </div>
+        }
+        </>
+       
         );
 
     }

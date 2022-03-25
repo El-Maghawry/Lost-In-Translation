@@ -1,4 +1,4 @@
-import {ACTION_USER_SET, ACTION_USER_HISTORY_SET, ACTION_USER_HISTORY_CLEAR} from '../actions/userActions'
+import {ACTION_USER_SET, ACTION_USER_HISTORY_CLEAR} from '../actions/userActions'
 
 const initialState = 
     {
@@ -13,11 +13,6 @@ const initialState =
             case ACTION_USER_SET:
                 return {
                     ...action.payload,
-                }
-            case ACTION_USER_HISTORY_SET:
-                return{
-                    ...state,
-                    translations: [...state.translations, action.payload]
                 }
             case ACTION_USER_HISTORY_CLEAR:
                 return{

@@ -3,8 +3,9 @@ const apiKey = '9c4e656f9d584e5fa37a48b92e8b568f'
 
 export const TranslationApi = {
 
-    updateUser(userId, translations){
-        return fetch(`${apiURL}/translations/${userId}`, {
+    updateUser(user){
+        console.log('updateUser')
+        return fetch(`${apiURL}/translations/${user.id}`, {
         method: 'PATCH', // NB: Set method to PATCH
         headers: {
             'X-API-Key': apiKey,
@@ -12,7 +13,7 @@ export const TranslationApi = {
         },
         body: JSON.stringify({
             // Provide new translations to add to user with id 1
-            translations: translations
+            translations: user.translations
         })
     })
     .then(response => {
