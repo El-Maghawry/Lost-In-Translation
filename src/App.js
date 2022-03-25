@@ -4,7 +4,6 @@ import LoginView from './components/views/LoginView.jsx';
 import TranslationView from './components/views/TranslationView.jsx';
 import ProfileView from './components/views/ProfileView.jsx';
 import NotFoundView from './components/views/NotFoundView.jsx';
-import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
