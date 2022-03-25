@@ -6,7 +6,7 @@ const Navbar = () => {
             <h1>Sign Language App ✌️</h1>
             <div className="links">
                 <Link to="/translation">Translation</Link>
-                <Link to="/Profile">Profile History</Link>
+                <Link to="/profile">Profile History</Link>
                 <Link to="/">Log-Out</Link>
             </div>
         </nav>

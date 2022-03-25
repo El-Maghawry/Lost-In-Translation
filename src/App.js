@@ -12,8 +12,8 @@ function App() {
         <Navbar/>
           <Routes>
             <Route path="/" element={<LoginView/>}/>
-            <Route path="translation" element={<TranslationView/>}/>
-            <Route path="profile" element={<ProfileView/>}/>
+            <Route path="/translation" element={<TranslationView/>}/>
+            <Route path="/profile" element={<ProfileView/>}/>
             <Route path="*" element={<NotFoundView/>}/>
           </Routes>
       </BrowserRouter>
