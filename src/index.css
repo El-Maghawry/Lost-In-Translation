@@ -30,6 +30,30 @@ img {
   flex:80%;
 }
 
-/* @tailwind base; 
-@tailwind components;
-@tailwind utilities; */
+.navbar {
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  max-width: 1600px;
+  margin: auto;
+  border-bottom: 1px solid #f2f2f2cc;
+}
+.navbar h1 {
+  color: #0d3580;
+}
+.navbar .links {
+  margin-left: auto;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+.navbar a:hover {
+  color: #f1356d;
+}
+.content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
