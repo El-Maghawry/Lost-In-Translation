@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     return ( 
         <nav className="navbar mt-3 mb-5">
-            <h1>Sign Language App ✌️</h1>
+            <h1>Lost In Translation ✌️</h1>
             <div className="links">
                 <Link to="/translation">Translation</Link>
                 <Link to="/profile">Profile History</Link>

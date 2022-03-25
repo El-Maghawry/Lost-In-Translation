@@ -10,8 +10,8 @@ const Translation = () => {
     const [isListShow, setIsListShow] = useState(false);
     const translation = [[]];
 
-    searchTerm.split("").forEach((letter) => {
-            translation[0].push(<img key="{}" src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
+    searchTerm.split("").forEach((letter, index) => {
+            translation[0].push(<img key="{index}" src={`./LostInTranslation_Resources/individial_signs/${letter}.png`} alt="" /> )
         })
 
 // input for translation
@@ -29,7 +29,6 @@ const Translation = () => {
 
     return (
         <div>
-            <h1 className="mt-3 mb-1">Translation Page</h1>
             <form className="mb-3">
                 <fieldset>
                     <legend> Insert text to translate to sign-language </legend>

@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
 import Translation from "../../components/Translation/Translation";
+import Navbar from "../Navbar/Navbar"
 
 function TranslationsView(){
     return (
         <main>
-        <NavLink to="/profile">Profile</NavLink>
+        <Navbar/>
         <Translation/>
         </main>
 

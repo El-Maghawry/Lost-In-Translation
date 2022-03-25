@@ -13,8 +13,8 @@ export const Profile = () => {
 
     return ( 
         <div>
-            <h2 className="mb-3">History</h2>
-            {user.username}
+            <h2 className="mb-3">My search history</h2>
+            <h4>Username: {user.username}</h4>
             <hr></hr>
             <ul>
             {

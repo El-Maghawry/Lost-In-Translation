@@ -9,7 +9,6 @@ import Navbar from './components/Navbar/Navbar';
 function App() {
   return (
       <BrowserRouter>
-        <Navbar/>
           <Routes>
             <Route path="/" element={<LoginView/>}/>
             <Route path="/translation" element={<TranslationView/>}/>
