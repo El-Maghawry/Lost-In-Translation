@@ -2,6 +2,8 @@
 
 [![web](https://img.shields.io/static/v1?logo=heroku&message=Online&label=Heroku&color=430098)](https://lost-in-translation-id-mem.herokuapp.com/)
 
+![image](https://user-images.githubusercontent.com/96972844/162690101-21ec7c8f-7b13-4628-911e-914d8608e2be.png)
+
 The Lost in Translations project is a application that let's the user translate given text into sign language. The project is an assignment that's part of the Noroff Full stack Java Developers course.
 
 ## Installation
